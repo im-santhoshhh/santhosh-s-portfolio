@@ -1,64 +1,48 @@
-# Devender Gopagoni | Portfolio Website
+# Santhosh S | Data Analyst & Business Analyst Portfolio
 
-A premium, interactive developer portfolio website built using Next.js, Tailwind CSS, GSAP, and Framer Motion. Featuring physics-based smooth scrolling, responsive card structures, and a multi-language interactive logo loader.
+A high-performance, interactive 3D video portfolio website built with Next.js 14, Tailwind CSS, Three.js, GSAP, and Framer Motion. Featuring physics-based smooth scrolling, responsive mobile card structures, and a distraction-free full-screen background video experience.
 
 ## 🌐 Live Website
 
-Explore the live site: https://devender-video-portfolio.vercel.app/
+- **Production URL**: [https://santhosh-s-portfolio-live.vercel.app/](https://santhosh-s-portfolio-live.vercel.app/)
 
 ---
 
-## 📸 Screenshots
+## ✨ Key Features
 
-### 1. Hero Section
-Features a high-definition background video with programmatic play/pause control, audio toggling, and an interactive 3-second centered logo loader cycling across Telugu, Hindi, and English.
-![Hero Section](./public/images/readme_hero.png)
-
-### 2. About Me Section (Digital Systems)
-Highlights core expertise using a clean responsive grid system alongside a high-resolution portrait sketch.
-![About Me Section](./public/images/readme_about.png)
-
-### 3. Contact & Footer Section
-Provides smooth-scroll action anchors to project sections and redirects users to active platforms.
-![Contact Section](./public/images/readme_contact.png)
-
----
-
-## ✨ Features
-
-- **Multi-Language Logo Loader**: A custom loading screen centering the sketch logo and cycling the text "DEVENDER PORTFOLIO" in Telugu (`దేవేందర్ పోర్ట్‌ఫోలియో`), Hindi (`देवेन्द्र पोर्टफोलियो`), and English (`DEVENDER PORTFOLIO`) with smooth Framer Motion fades.
-- **Background Video Hero**: High-definition video with floating play/pause controls, vertically centered left copy block, and customized diagonal/vertical action icons.
-- **Responsive Layout Architecture**: Re-engineered overlaps to display clean grid layouts on mobile and desktop viewports.
-- **Lenis Smooth Scroll on Mobile**: Fully enabled smooth physics inertia scrolling on touch devices (`syncTouch` and `smoothTouch`).
-- **Mobile Performance Optimizations**: Auto-scaling sphere particle vertex density on mobile screens (reducing overhead from 4,096 to 1,024 points) to keep scrolling frame rates high.
-- **Uncropped Selected Projects**: Clear list row layouts featuring contain-fit screenshot thumbnails with dynamic hover offsets.
+- **Mobile-Optimized Hero Layout**: Crisp, frosted-glass hero card docked at the bottom with high contrast, cleanly displaying title, skills pills, and action buttons without obscuring portraits.
+- **Distraction-Free Video Experience**: Clean full-screen background video playback mode with zero text overlay and floating pause/play controls.
+- **Interactive 3D Visuals & Particle Simulation**: Built on React Three Fiber and Three.js with responsive particle scaling for smooth mobile performance.
+- **Physics-Based Smooth Scrolling**: Powered by Lenis for fluid inertia scrolling on both desktop and mobile touch devices.
+- **Analytics Projects & Academic Background**: Showcases data analysis projects (SQL, Power BI, Python, Excel) and verified certifications.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Framework**: Next.js 14
-- **Styling**: Tailwind CSS
-- **Animations**: GSAP, Framer Motion, React Spring
-- **3D Renderers**: React Three Fiber, React Three Drei, Three.js
-- **Scroll Engine**: Lenis (Smooth Scroll)
+- **Framework**: Next.js 14 (App Router)
+- **Styling**: Tailwind CSS, CSS Modules
+- **Animations**: Framer Motion, GSAP
+- **3D & Canvas**: Three.js, React Three Fiber, React Three Drei
+- **Smooth Scroll**: Lenis
+- **Deployment**: Vercel
 
 ---
 
-## 📦 Local Installation
+## 📦 Local Setup & Development
 
-1. Clone the repository:
+1. **Clone the repository**:
    ```bash
-   git clone <repository-url>
-   cd portfolio_day7
+   git clone https://github.com/im-santhoshhh/santhosh-s-portfolio.git
+   cd santhosh-s-portfolio
    ```
 
-2. Install dependencies:
+2. **Install dependencies**:
    ```bash
    npm install
    ```
 
-3. Run the development server:
+3. **Run the development server**:
    ```bash
    npm run dev
    ```
@@ -67,9 +51,8 @@ Provides smooth-scroll action anchors to project sections and redirects users to
 
 ---
 
-## 🚀 Build for Production
+## 🚀 Production Build
 
-To compile and verify page routes for static delivery:
 ```bash
 npm run build
 npm start
