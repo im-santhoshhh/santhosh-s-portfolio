@@ -1,0 +1,154 @@
+"use client";
+
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import profile from "@/data/profile";
+
+const ArrowUpRight = () => (
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M7 17 17 7" />
+    <path d="M7 7h10v10" />
+  </svg>
+);
+
+const Contact = () => {
+  const sectionRef = useRef(null);
+  const eyebrowRef = useRef(null);
+  const headlineRef = useRef(null);
+  const emailRef = useRef(null);
+  const ctaRef = useRef(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      const eyebrowChars = eyebrowRef.current?.querySelectorAll(".ct-char") ?? [];
+      const headlineChars = headlineRef.current?.querySelectorAll(".ct-char") ?? [];
+
+      gsap.from(eyebrowChars, {
+        opacity: 0,
+        y: 40,
+        duration: 1.0,
+        stagger: { amount: 0.4, from: "start" },
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: eyebrowRef.current,
+          start: "top 90%",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      gsap.from(headlineChars, {
+        opacity: 0,
+        y: 200,
+        duration: 1.4,
+        stagger: { amount: 0.6, from: "start" },
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: headlineRef.current,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      gsap.from([emailRef.current, ctaRef.current], {
+        autoAlpha: 0,
+        y: 50,
+        duration: 1,
+        stagger: 0.15,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: emailRef.current,
+          start: "top 95%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    }, sectionRef.current);
+
+    return () => ctx.revert();
+  }, []);
+
+  const splitChars = (text) =>
+    text.split("").map((char, i) => (
+      <span key={i} className="ct-char" style={{ display: "inline-block" }}>
+        {char === " " ? "\u00A0" : char}
+      </span>
+    ));
+
+  return (
+    <section id="contact-section" ref={sectionRef}>
+      <div id="ct-eyebrow" ref={eyebrowRef}>
+        {splitChars("seeking a data & business analyst?")}
+      </div>
+
+      <h2 id="ct-headline" ref={headlineRef}>
+        {splitChars("let's connect.")}
+      </h2>
+
+      <a
+        id="ct-email"
+        href={`mailto:${profile.email}`}
+        ref={emailRef}
+        aria-label="Email Santhosh S"
+      >
+        {profile.email}
+      </a>
+
+      <div className="flex items-center gap-4 text-sm text-fg-muted my-2">
+        <span>📍 {profile.location}</span>
+        <span>•</span>
+        <a href={`tel:${profile.phone}`} className="hover:text-fg transition-colors">
+          📞 {profile.phone}
+        </a>
+      </div>
+
+      <div id="ct-actions" ref={ctaRef} className="flex flex-wrap gap-4 items-center justify-center">
+        <a
+          id="ct-btn"
+          href={profile.linkedin}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <span>LINKEDIN PROFILE</span>
+          <ArrowUpRight />
+        </a>
+        <a
+          id="ct-btn-resume"
+          className="ct-btn-secondary"
+          href={profile.resume}
+          target="_blank"
+          rel="noopener noreferrer"
+          download="Santhosh_S_Resume.pdf"
+        >
+          <span>DOWNLOAD RESUME</span>
+          <ArrowUpRight />
+        </a>
+        <a
+          id="ct-btn-whatsapp"
+          className="ct-btn-secondary"
+          href={profile.whatsapp}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <span>WHATSAPP CHAT</span>
+          <ArrowUpRight />
+        </a>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
